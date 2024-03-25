@@ -1,0 +1,83 @@
+---
+import Image from 'astro/components/Image.astro';
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+import logo from "../images/bullets.png"
+
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="container is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+		<Image src={logo} alt="Warsaw Bullets Logo"/>
+		<h1 class="title mt-0">Gratulacje!</h1>
+	</div>
+	<p class="has-text-justified block">
+        To już koniec szkolenia. Możesz już zamknąć stronę lub wprowadzić imię i nazwisko, aby wygenerować certyfikat operatora światełek!
+	</p>
+	<input id="certInput" class="input is-success" type="text" placeholder="Imię i Nazwisko" />
+    <canvas class="is-hidden" id="cert"></canvas>
+	<div class="container mt-5 is-flex is-justify-content-space-between is-align-items-center is-flex-direction-row">
+        <Button href="/szkolenie-foto/4" type="is-light">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>              
+			<span>Wstecz</span>
+		</Button>
+		<Button id="generateButton">
+			<span>Generuj certyfikat</span>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+            </svg>
+		</Button>
+	</div>
+	<div class="mt-4">
+		<progress class="progress is-small" value="100" max="100">
+			100%
+		</progress>
+	</div>
+</Layout>
+<style>
+	h1 {
+		color: #50535b;
+	}
+</style>
+
+<!-- (A) EMPTY CANVAS -->
+
+ 
+<script>
+const generateBtn = document.getElementById("generateButton");
+generateBtn.addEventListener("click", ()=>{generateCanvas()});
+
+const certInput = document.getElementById("certInput");
+
+const img = new Image(),
+    canvas = document.getElementById("cert"),
+    ctx = canvas.getContext("2d");
+ 
+const generateCanvas = () => {
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
+  ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
+ 
+  ctx.font = "bold 100px sans-serif";
+  ctx.fillStyle = "rgba(199,211,1,255)";
+ 
+  let x = Math.floor((img.naturalWidth) / 2)-340,
+      y = Math.floor((img.naturalHeight) / 2)-40;
+  ctx.fillText(certInput.value, x, y);
+
+  downloadCert();
+};
+
+const downloadCert = () => {
+  const link = document.createElement('a');
+  link.download = 'certyfikat_foto.png';
+  link.href = document.getElementById('cert').toDataURL()
+  link.click();
+}
+
+
+img.src = "/szkolenie-foto/Certyfikat_Foto.png";
+</script>

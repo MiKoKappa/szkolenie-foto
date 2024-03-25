@@ -3,7 +3,7 @@ import Image from 'astro/components/Image.astro';
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 
-import poziomica from "../images/2C3EE380-1D22-48C3-929B-BB93F1EDD717_poziomica.jpeg";
+import screen from "../images/A24D326F-423C-4CD2-B3D6-CBAF24AE21F8.png";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -11,53 +11,99 @@ import poziomica from "../images/2C3EE380-1D22-48C3-929B-BB93F1EDD717_poziomica.
 		<h2 class="title is-4">Połączenie i obsługa</h2>
 	</div>
 	<p class="has-text-justified block">
-        Zalecane jest rozstawienie części aktywnej i pasywnej na odległość ok. 1.4 - 1.5m (osobiście odsuwam około 1,5 stopy od toru z każdej strony).
+        Maksymalnie można podłączyć 8 klientów WiFi jednocześnie, jednakże ze względów wydajnościowych lepiej nie przekraczać ilości 4 klientów jednocześnie szczególnie, 
+        że w praktyce jedna osoba steruje ETSem i prezentuje wyniki handlerom.
 	</p>
+    <p>
+        Aby dostać się do panelu aplikacji należy zalogować się do sieci FlyballETS oraz w przeglądarce otworzyć stronę <b>http://192.168.20.1</b> lub <b>https://192.168.20.1</b>.
+    </p>
 	<p class="has-text-justified block">
-		Większa odległość może powodować "szum sensorów" podczas przebiegania psa. 
+		<span class="has-text-danger">UWAGA!</span> Użytkownicy iOSa muszą wprowadzić dodatkowe zmiany. Inaczej próba połączenia z ETSem będzie powodowała ciągłe restarty systemu.
 	</p>
     <p class="has-text-justified block">
-        Max. rozstawienie nie powinno przekraczać 1.7m.
+        Od wersji iOS 15 wymagane jest wyłączenie w Ustawieniach jednej funkcji:
+    </p>
+    <p class="has-text-centered block is-size-6 has-text-weight-semibold">
+        Ustawienia => Safari => Zaawansowane => Experimental Features => NSURLSession WebSocket
+    </p>
+    <p class="has-text-justified block">
+        Link do filmu, gdzie jest to pokazane: <a href="https://www.youtube.com/watch?v=ohZqT0l43w4" target="_blank">Jak skonfigurować telefon z iOS</a>
+    </p>
+    <p class="has-text-justified block">
+        Dodatkowo po nawiązaniu połączenia z siecią WiFi nadawaną przez ETS należy wejść w opcję:
 	</p>
+    <p class="has-text-centered block is-size-6 has-text-weight-semibold">
+        Ustawienia => Wi-Fi => przy sieci FlyballETS nacisnąć "i" w kółku,
+    </p>
+    <p class="has-text-justified block">
+        a następnie wyłączyć:
+    </p>
+    <ul>
+        <li>
+            Prywatny adres Wi-Fi
+        </li>
+        <li>
+            Ograniczaj śledzenie adresu IP
+        </li>
+    </ul>
     <hr style="opacity: 55%"/>
     <p class="has-text-justified block">
-        Po wstępnym rozstawieniu stóp należy nałożyć część aktywną i wstępnie dokręcić zachowując poziom przy użyciu "poziomicy / oczka" znajdującego się na górnej części fotokomórki.
 	</p>
-    <Image src={poziomica} alt="Poziomica na górze fotokomórki" style={"border-radius: 0.5rem"}/>
+    <div class="mb-5 container is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+        <Image src={screen} alt="Zrzut ekranu z aplikacji" style={"border-radius: 0.5rem; max-width: 300px"}/>
+    </div>
     <p class="has-text-justified block">
-        Skorygować ustawienie stopy tak, aby linia startu/mety pokrywała się z linią czujników od strony handlerów.
+        W prawym górnym rogu znajduje się wybór ilości psów - przydatny w przypadku niepełnych składów lub biegania solo.
     </p>
     <p class="has-text-justified block">
-        Zamocować wstępnie część pasywną do stopy.
+        Poniżej znajduje się przełącznik powtórek - włączenie tego przełącznika (oznaczone na czerwono) powoduje zatrzymanie po przebiegu pomimo błędów. 
+        Zazwczyaj na treningach to ustawienie jest zaznaczone (reruns OFF).
     </p>
     <p class="has-text-justified block">
-        Wskazania poziomicy na części pasywnej powinny być podobne do tych na części aktywne, ale <span class="has-text-warning">nie muszą być IDEALNIE w poziomie</span>.
+        Obok przełącznika ilości psów znajdują się trzy przyciski sterowania biegiem - start, stop oraz reset.
     </p>
     <p class="has-text-justified block">
-        Co więcej w przypadku nierównego terenu, gdy część aktywna jest wyżej niż pasywna, to aktywną należy pochylić lekko w kierunku pasywnej, a pasywną odchylić lekko do tyłu. 
-        Analogicznie, jeśli część aktywna jest niżej niż część pasywna, to część aktywną należy pochylić lekko w tył, a część pasywną w przód (w kierunku części aktywnej). 
-        Dzięki temu pomimo nierównego terenu górne/dolne wiązki nie będą celowały nad lub pod "lusterka" części pasywnej.
+        Przed wciśnięciem przycisku start należy sprawdzić gotowość wszystkich osób zaangażowanych w trening.
     </p>
     <p class="has-text-justified block">
-        Jeśli w stanie gotowości (READY, po resecie) górne białe światło błędu świeci się lub mruga to znaczy, że czujniki nie trafiają w lusterka części pasywnej i należy skorygować ustawienie. 
-        Podobna sytuacja może mieć miejsce w trakcie deszczu / mżawki / mgły, wówczas należy przetrzeć lusterka oraz same czujniki miękką chłonną szmatką. 
-        Czujniki mogą też zostać zakłócone w przypadku bezpośredniego jasnego oświetlenia (słońce), dlatego należy ustawiać część aktywną tyłem do słońca (szczególnie rano oraz wieczorem, 
-        gdy słońce jest nisko na horyzoncie). Oczywiście należy także stosownie ustawić kierunek biegu ("side switch"). 
-        Im lepsza dokładność ustawienia czujników, tym bardziej niezawodne jest działanie systemu.
+        Przycisk stop powinien być wciśnięty tylko w przypadku manualnego końca biegu (problem z boksem, nie wracający pies itp.).
+        Poza tymi sytuacjami bieg powinien być automatycznie zatrzymany po ukończeniu przebiegów.
+    </p>
+    <p class="has-text-justified block">
+        Przycisk reset służy do przywrócenia stanu gotowości przed kolejnym biegiem.
+        Przed wciśnięciem należy się upewnić, że wszystkie wymagane informacje zostały już pozyskane - <span class="has-text-danger">przywrócenie informacji o biegu nie jest możliwe!</span>
+    </p>
+    <p class="has-text-justified block">
+        Poniżej znajdują się czasy całego składu dla aktualnego biegu.
+    </p>
+    <p class="has-text-justified block">
+        Pięć kół położonych poniżej symbolizuje światła i powinny wskazywać identyczny stan z fizycznymi światłami na części aktywnej fotokomórki.
+    </p>
+    <p class="has-text-justified block">
+        Poniżej znajduje się tabelka z czasami poszczególnych psów oraz z wejściem/crossem i informacją o błędzie. 
+        Błąd może być zaznaczony ręcznie przełącznikiem po prawej stronie.
+    </p>
+    <p class="has-text-justified block">
+        Na samym dole strony wyświetlane są informacje o stanie systemu.
     </p>
 	<div class="container is-flex is-justify-content-space-between is-align-items-center is-flex-direction-row">
-        <Button href="/1" type="is-light">
+        <Button href="/szkolenie-foto/2" type="is-light">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>              
 			<span>Wstecz</span>
 		</Button>
-		<Button href="/3">
+		<Button href="/szkolenie-foto/4">
 			<span>Dalej</span>
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
 			    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
 			</svg>
 		</Button>
+	</div>
+    <div class="mt-4">
+		<progress class="progress is-small" value="60" max="100">
+			60%
+		</progress>
 	</div>
 </Layout>
 <style>

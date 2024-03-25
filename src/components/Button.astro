@@ -1,8 +1,8 @@
 ---
-const { type, href } = Astro.props;
+const { type, href, id } = Astro.props;
 ---
 <a href={href}>
-    <button class={"button " + (type||"is-primary")}>
+    <button id={id} class={"button " + (type||"is-primary")}>
         <slot />
     </button>
 </a>

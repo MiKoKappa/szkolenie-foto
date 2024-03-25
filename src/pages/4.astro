@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="container is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+		<h2 class="title is-4">Dodatkowe informacje</h2>
+	</div>
+	<p class="has-text-justified block">
+        Większość błędów zmiany jest niemierzalna i w zależności od prędkości i wielkości psa może sięgać nawet -0.10s.
+	</p>
+    <p>
+        Analogicznie ma się sprawa z bezbłędnymi krosami. System analizuje wyłącznie przecięcia wiązek, ale nie wie, który pies przecina linię startu/mety lub kiedy dokładnie to robi, 
+        bo drugi pies już mógł "zakryć" wiązki. Z tego też powodu większość krosów do ok. 0.10s będzie rozpoznawany jako "OK" lub "ok", 
+        przy czym małe "ok" jest w większości przypadków nieco gorszym krosem.
+    </p>
+	<p class="has-text-justified block">
+		Wyjątek od powyższej reguły stanowi bardzo mały kros, poniżej 6ms. Wówczas z ograniczeń fizycznych wiadomo, 
+        że po przecięciu linii kierunku (tej od boksu) to nabiegający pies musiał przeciąć linię startu mety (powracający nie zdążyłby tego zrobić). 
+        W takiej sytuacji system wyświetli "Perfect".
+	</p>
+    <p class="has-text-justified block">
+        Podobnie jak w EJSie błąd psa powoduje, że czas psa poprzedniego jest zakłamany i nie należy go uwzględniać w statystykach.
+    </p>
+    <p class="has-text-justified block">
+        Clean Time ma sens wyłącznie dla bezbłędnych przebiegów, dlatego w innym przypadku jest brak wartości "n/a".
+    </p>
+	<div class="container is-flex is-justify-content-space-between is-align-items-center is-flex-direction-row">
+        <Button href="/szkolenie-foto/3" type="is-light">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>              
+			<span>Wstecz</span>
+		</Button>
+		<Button href="/szkolenie-foto/5">
+			<span>Dalej</span>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+			    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+			</svg>
+		</Button>
+	</div>
+    <div class="mt-4">
+		<progress class="progress is-small" value="80" max="100">
+			80%
+		</progress>
+	</div>
+</Layout>
+<style>
+	h2 {
+		color: #50535b;
+	}
+</style>
