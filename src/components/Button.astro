@@ -1,0 +1,18 @@
+---
+const { type, href } = Astro.props;
+---
+<a href={href}>
+    <button class={"button " + (type||"is-primary")}>
+        <slot />
+    </button>
+</a>
+
+<style>
+    button.is-primary {
+        background-color: #c7d301;
+        transition: all 0.5s;
+    }
+    button.is-primary:hover {
+        opacity: 50%;
+    }
+</style>

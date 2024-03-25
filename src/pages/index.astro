@@ -1,0 +1,34 @@
+---
+import Image from 'astro/components/Image.astro';
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+import logo from "../images/bullets.png"
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="container is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+		<Image src={logo} alt="Warsaw Bullets Logo"/>
+		<h1 class="title mt-0">Szkolenie z fotokomórki</h1>
+	</div>
+	<p class="has-text-justified block">Ta strona ma być wprowadzeniem do używania fotokomórki na treningach. Przeprowadzi Cię przez podstawy poprawnego rozkładania, 
+		konfigurowania i sterowania aplikacją webową.
+	</p>
+	<p class="has-text-justified block has-text-grey-light">
+		Kurs nie wchodzi w szczegóły administracyjne i inżynieryjne.
+	</p>
+	<div class="container is-flex is-justify-content-end is-align-items-center is-flex-direction-row">
+		<Button href="/1">
+			<span>Dalej</span>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+				<path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+			  </svg>
+			  
+		</Button>
+	</div>
+</Layout>
+<style>
+	h1 {
+		color: #50535b;
+	}
+</style>

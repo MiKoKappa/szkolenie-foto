@@ -1,0 +1,67 @@
+---
+import Image from 'astro/components/Image.astro';
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+import poziomica from "../images/2C3EE380-1D22-48C3-929B-BB93F1EDD717_poziomica.jpeg";
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="container is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+		<h2 class="title is-4">Połączenie i obsługa</h2>
+	</div>
+	<p class="has-text-justified block">
+        Zalecane jest rozstawienie części aktywnej i pasywnej na odległość ok. 1.4 - 1.5m (osobiście odsuwam około 1,5 stopy od toru z każdej strony).
+	</p>
+	<p class="has-text-justified block">
+		Większa odległość może powodować "szum sensorów" podczas przebiegania psa. 
+	</p>
+    <p class="has-text-justified block">
+        Max. rozstawienie nie powinno przekraczać 1.7m.
+	</p>
+    <hr style="opacity: 55%"/>
+    <p class="has-text-justified block">
+        Po wstępnym rozstawieniu stóp należy nałożyć część aktywną i wstępnie dokręcić zachowując poziom przy użyciu "poziomicy / oczka" znajdującego się na górnej części fotokomórki.
+	</p>
+    <Image src={poziomica} alt="Poziomica na górze fotokomórki" style={"border-radius: 0.5rem"}/>
+    <p class="has-text-justified block">
+        Skorygować ustawienie stopy tak, aby linia startu/mety pokrywała się z linią czujników od strony handlerów.
+    </p>
+    <p class="has-text-justified block">
+        Zamocować wstępnie część pasywną do stopy.
+    </p>
+    <p class="has-text-justified block">
+        Wskazania poziomicy na części pasywnej powinny być podobne do tych na części aktywne, ale <span class="has-text-warning">nie muszą być IDEALNIE w poziomie</span>.
+    </p>
+    <p class="has-text-justified block">
+        Co więcej w przypadku nierównego terenu, gdy część aktywna jest wyżej niż pasywna, to aktywną należy pochylić lekko w kierunku pasywnej, a pasywną odchylić lekko do tyłu. 
+        Analogicznie, jeśli część aktywna jest niżej niż część pasywna, to część aktywną należy pochylić lekko w tył, a część pasywną w przód (w kierunku części aktywnej). 
+        Dzięki temu pomimo nierównego terenu górne/dolne wiązki nie będą celowały nad lub pod "lusterka" części pasywnej.
+    </p>
+    <p class="has-text-justified block">
+        Jeśli w stanie gotowości (READY, po resecie) górne białe światło błędu świeci się lub mruga to znaczy, że czujniki nie trafiają w lusterka części pasywnej i należy skorygować ustawienie. 
+        Podobna sytuacja może mieć miejsce w trakcie deszczu / mżawki / mgły, wówczas należy przetrzeć lusterka oraz same czujniki miękką chłonną szmatką. 
+        Czujniki mogą też zostać zakłócone w przypadku bezpośredniego jasnego oświetlenia (słońce), dlatego należy ustawiać część aktywną tyłem do słońca (szczególnie rano oraz wieczorem, 
+        gdy słońce jest nisko na horyzoncie). Oczywiście należy także stosownie ustawić kierunek biegu ("side switch"). 
+        Im lepsza dokładność ustawienia czujników, tym bardziej niezawodne jest działanie systemu.
+    </p>
+	<div class="container is-flex is-justify-content-space-between is-align-items-center is-flex-direction-row">
+        <Button href="/1" type="is-light">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>              
+			<span>Wstecz</span>
+		</Button>
+		<Button href="/3">
+			<span>Dalej</span>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+			    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+			</svg>
+		</Button>
+	</div>
+</Layout>
+<style>
+	h2 {
+		color: #50535b;
+	}
+</style>

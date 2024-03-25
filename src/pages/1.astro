@@ -1,0 +1,101 @@
+---
+import Image from 'astro/components/Image.astro';
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+import wlacznik from "../images/F6C19165-0F35-4A7A-85CE-47A1BFE50FD8.jpeg";
+import przyciski from "../images/333DBC85-76AE-48E1-AF08-2428D2BFEA32.jpeg";
+import ekran from "../images/2C3EE380-1D22-48C3-929B-BB93F1EDD717.jpeg";
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="container is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+		<h2 class="title is-4">Budowa fotokomórki</h2>
+	</div>
+    <p class="has-text-justified block">
+        Fotokomórka składa się z części aktywnej oraz pasywnej.
+	</p>
+    <p class="has-text-justified block">
+        Część aktywna zawiera światła, ekran, czujniki oraz przyciski, a część pasywna zawiera jedynie elementy odblaskowe odbijające wiązki z czujników.
+	</p>
+    <hr style="opacity: 55%"/>
+	<p class="has-text-justified block">
+        Po stronie prawej znajduje się przycisk włącz/wyłącz.
+	</p>
+    <Image src={wlacznik} alt="Przycisk włącz/wyłącz" style={"border-radius: 0.5rem"}/>
+    <p class="has-text-justified block">
+        Po lewej stronie znajdują się dwa przyciski - płaski oraz wypukły.
+	</p>
+	<p class="has-text-justified block">
+		Płaski przycisk to przycisk "Laser". Krótkie przyciśnięcie aktywuje diody laserowe służące to pozycjonowania systemu. Domyślny czas działania to 60s.
+	</p>
+    <p class="has-text-justified block has-text-danger">
+        Długie przyciśnięcie włącza/wyłącza funkcję WiFi - nie da się wtedy połaczyć do sieci komórki!
+	</p>
+    <hr style="opacity: 55%"/>
+    <p class="has-text-justified block">
+        Wypukły przycisk to przycisk "Tryb / Mode". Krótkie przyciśnięcie zmienia dokładność wyświeltanych wyników między setnymi lub tysięcznymi częściami sekundy (0.00 lub 0.000).
+	</p>
+    <p class="has-text-justified block">
+		Długie przyciśnięcie przełącza kierunek biegu ("side switch"): normalny (aktywna jednostka po prawej), lub odwrócony/inverted jeśli aktywna jednostka jest po lewej.
+	</p>
+    <Image src={przyciski} alt="Przyciski po lewej stronie fotokomórki" style={"border-radius: 0.5rem"}/>
+    <hr style="opacity: 55%"/>
+    <p class="has-text-justified block">
+        Na ekranie znajdują się informacje o biegu oraz o stanie fotokomórki.
+    </p>
+    <p class="has-text-justified block">
+        Po lewej stronie widoczne są czasy składu, wyświetlane z dokładnością skonfigurowaną przez przycisk "Tryb / Mode".
+    </p>
+    <p class="has-text-justified block">
+        Jeśli pies zrobił niemierzalny błąd zmiany ("fault"), to czas wcześniejszego psa jest nieważny i poprzedzony znakiem "#"
+    </p>
+    <p class="has-text-justified block">
+        Jeśli błąd psa został zaznaczony ręcznie (np. pies nie doniósł piłki) czas dobiegu/krosa będzie poprzedzony literką "F" oznaczającą błąd (Fault).
+    </p>
+    <p class="has-text-justified block">
+        W prawym górnym rogu wyświetlany jest stan oraz numer biegu.
+    </p>
+    <p class="has-text-justified block">
+        Poniżej znajdują się czasy składu.
+    </p>
+    <p class="has-text-justified block">
+        W prawym dolnym rogu ekranu znajduje się informacja o stanie naładowania jednostki oraz strzałka kierunku biegu, która powinna być zawsze zwrócona w stronę boksów.
+    </p>
+    <p class="has-text-justified block">
+        Pomimo zabezpieczeń nie jest zalecane, aby jednostka często była używana z poniżej 15% poziomu naładowania.
+        Baterie LiIon nie należy często ładować bardzo długo (do maksymalnej pojemności). Lepiej, aby ładowanie zakończyć w momencie, gdy niebieska dioda ładowania (nad gniazdem ładowania) zgaśnie. 
+        Nie jest niczym złym, gdy odłączy się zasilacz np. 2h od momentu zgaśnięcia diody, ale częste długie ładownie (np. przez noc) jest niezalecane.
+        W trakcie ładowania baterii nie można korzystać z ETSa. Dopiero po odłączeniu zasilacza możliwe jest uruchomienie systemu.
+    </p>
+    <Image src={ekran} alt="Ekran fotokomórki" style={"border-radius: 0.5rem"}/>
+    <hr style="opacity: 55%"/>
+    <p class="has-text-justified block">
+        5 świateł jest wykorzystywanych zarówno do sekwencji startowej jak i oznaczania błędów psów.
+    </p>
+    <p>
+        Górne światło jest światłem białym <span class="has-text-danger">nie używanym w sekwencji startowej</span>.
+    </p>
+    <p>
+        Światło to jest używane do informacji o resecie biegu, ręcznym zatrzymaniu lub powiadomieniu o błędzie ustawienia sensorów - zły kąt częsci pasywnej/aktywnej, deszcz lub brud na elementach fotokomórki.
+    </p>
+	<div class="container is-flex is-justify-content-space-between is-align-items-center is-flex-direction-row">
+        <Button href="/" type="is-light">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>              
+			<span>Wstecz</span>
+		</Button>
+		<Button href="/2">
+			<span>Dalej</span>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+			    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+			</svg>
+		</Button>
+	</div>
+</Layout>
+<style>
+	h2 {
+		color: #50535b;
+	}
+</style>
